@@ -1,0 +1,42 @@
+/* Home.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1e1e1e; /* Dark background color */
+    color: #ffffff; /* Light text color */
+    font-family: Arial, sans-serif;
+  }
+  
+  .home-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .home-container button {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: #4CAF50; /* Green button color */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  .home-container button:active {
+    background-color: #3e8e41; /* Darker green on click */
+  }
+  
+  .home-container a {
+    text-decoration: none;
+  }
+  

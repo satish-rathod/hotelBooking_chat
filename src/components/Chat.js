@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Chat.css';
 
 function Chat() {
     const [message, setMessage] = useState('');
@@ -7,10 +8,9 @@ function Chat() {
     const [userId, setUserId] = useState('');
 
     useEffect(() => {
-        // Check if userId exists in local storage, if not generate a new one
         let storedUserId = localStorage.getItem('userId');
         if (!storedUserId) {
-            storedUserId = 'user-' + Date.now(); // Simple userId generation for demo purposes
+            storedUserId = 'user-' + Date.now();
             localStorage.setItem('userId', storedUserId);
         }
         setUserId(storedUserId);
@@ -32,19 +32,18 @@ function Chat() {
             console.error('Error sending message:', error);
         }
     };
-    
 
     return (
-        <div>
-            <h2>Chat with the Bot</h2>
-            <div>
+        <div className="chat-container">
+            <h2>Hotel Seven</h2>
+            <div className="chat-history">
                 {chatHistory.map((chat, index) => (
-                    <div key={index}>
-                        <strong>{chat.user}:</strong> {chat.message}
+                    <div key={index} className={`chat-message ${chat.user === 'You' ? 'user-message' : 'bot-message'}`}>
+                        {chat.message}
                     </div>
                 ))}
             </div>
-            <form onSubmit={handleSendMessage}>
+            <form onSubmit={handleSendMessage} className="chat-form">
                 <input type="text" value={message} onChange={handleMessageChange} placeholder="Type a message" required />
                 <button type="submit">Send</button>
             </form>

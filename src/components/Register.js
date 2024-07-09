@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-// import './Register.css';
+import './Register.css'; // Import your CSS file
 
 function Register() {
     const [formData, setFormData] = useState({
@@ -32,15 +32,47 @@ function Register() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Register</h2>
-            <input type="text" name="firstName" onChange={handleChange} placeholder="First Name" required />
-            <input type="text" name="lastName" onChange={handleChange} placeholder="Last Name" required />
-            <input type="text" name="username" onChange={handleChange} placeholder="Username" required />
-            <input type="email" name="email" onChange={handleChange} placeholder="Email" required />
-            <input type="password" name="password" onChange={handleChange} placeholder="Password" required />
-            <button type="submit">Register</button>
-        </form>
+        <div className="register-container">
+            <form onSubmit={handleSubmit} className="register-form">
+                <h2>Register</h2>
+                <input 
+                    type="text" 
+                    name="firstName" 
+                    onChange={handleChange} 
+                    placeholder="First Name" 
+                    required 
+                />
+                <input 
+                    type="text" 
+                    name="lastName" 
+                    onChange={handleChange} 
+                    placeholder="Last Name" 
+                    required 
+                />
+                <input 
+                    type="text" 
+                    name="username" 
+                    onChange={handleChange} 
+                    placeholder="Username" 
+                    required 
+                />
+                <input 
+                    type="email" 
+                    name="email" 
+                    onChange={handleChange} 
+                    placeholder="Email" 
+                    required 
+                />
+                <input 
+                    type="password" 
+                    name="password" 
+                    onChange={handleChange} 
+                    placeholder="Password" 
+                    required 
+                />
+                <button type="submit">Register</button>
+            </form>
+        </div>
     );
 }
 
