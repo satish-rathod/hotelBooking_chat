@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [formData, setFormData] = useState({ email: '', password: '' });
-    const history = useNavigate();
+    const navigate = useNavigate();
+    
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -16,9 +17,9 @@ function Login() {
         e.preventDefault();
         console.log(formData);
         try {
-            const res = await axios.post('http://localhost:5000/api/users/login', formData);
+            const res = await axios.post(`http://localhost:5000/api/users/login`, formData);
             localStorage.setItem('token', res.data.token);
-            history('/chat');
+            navigate('/chat');
         } catch (error) {
             console.error('Error logging in:', error);
         }
